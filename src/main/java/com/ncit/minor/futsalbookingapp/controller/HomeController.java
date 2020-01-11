@@ -25,19 +25,18 @@ public class HomeController {
 	@GetMapping("/")
 
 	public String index(Model model) {
+        List<Booking>bookings= bookingService.findBookings();
+        for (Booking b : bookings) {
+
+            if (b.getBookDate().getTime() + b.getBookTime().getTime() < currentDate.getTime()) {
+                bookingService.delete(b);
+            }
+        }
 		return "index";
 	}
 
 	@GetMapping("/authenticated")
     public String getAuthIndex(Principal principal) {
-		List<Booking>bookings= bookingService.findBookings();
-		for (Booking b : bookings) {
-
-			if (b.getBookDate().getTime() + b.getBookTime().getTime() < currentDate.getTime()) {
-				bookingService.delete(b);
-			}
-		}
-
 		if (userService.findByUsername(principal.getName()).getUserRole().equals("ADMIN")) {
 				return "redirect:/admin";
 			}
