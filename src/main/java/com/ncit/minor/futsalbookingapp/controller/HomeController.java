@@ -28,7 +28,7 @@ public class HomeController {
         List<Booking>bookings= bookingService.findBookings();
         for (Booking b : bookings) {
 			if(b.getBookDate() != null)
-            if (b.getBookDate().getTime() + b.getBookTime().getTime() < currentDate.getTime()) {
+            if ((((b.getBookDate().getTime())+(b.getBookTime().getTime()))-(currentDate.getTime())) < -19649562) {
                 bookingService.delete(b);
             }
         }
