@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+	<div id="page-wrapper">
+		<div th:replace="fragments/header::header"></div>
+		<!-- Main -->
+		<div id="main" class="wrapper style1_1">
+			<div class="container">
+				<header class="major">
+					<h2>LOG IN FORM</h2>
+					<p>Please enter the required field.</p>
+				</header>
+
+				<!-- Content -->
+				<section id="content" th:align="center">
+
+					<form th:action="@{/dologin}" method="post">
+						<div align="center" class="row uniform 50%">
+							<div class="6u -3u">
+							<span style="font-size: 20px;"
+							th:if="${param.error}">Incorrect Username or Password</span>
+								<input type="text" name="username" id="name" value=""
+									placeholder="Username"> 
+							</div>
+						</div>
+
+						<div class="row uniform 50%">
+							<div class="6u -3u">
+								<input type="password" name="password" id="name" value=""
+									placeholder="Password"> 
+							</div>
+						</div>
+
+						<div class="row uniform 50%">
+							<div class="12u">
+								<ul class="actions">
+									<li><input type="submit" value="Login" class="special"></li>
+									<li><h1 id="dontHaveAccount">
+											<a th:href="@{/user/add}">Don't Have Account?</a>
+										</h1></li>
+								</ul>
+							</div>
+						</div>
+						<div class="row uniform 50%">
+							<ul class="actions">
+
+							</ul>
+						</div>
+					</form>
+
+
+				</section>
+
+			</div>
+		</div>
+
+		<div th:replace="fragments/header :: footer"></div>
+
+	</div>
+
+	<div th:replace="fragments/header :: js"></div>
+</body>
+</html>

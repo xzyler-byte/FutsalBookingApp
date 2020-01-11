@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head>
+<body class="landing">
+<div th:replace="fragments/header :: header">&nbsp;</div>
+</head>
+<body>
+<div id="main" class="wrapper style1">
+    <div class="container">
+        <header class="major">
+            <h2>Booking List</h2>
+            <p>Below are the list of bookings.</p>
+        </header>
+
+        <!-- Content -->
+        <section id="content">
+
+            <div class="table-wrapper">
+                <table border="1">
+                    <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Username</th>
+                        <th>UserContact</th>
+                        <th>Futsal Name</th>
+                        <th>Booking Date</th>
+                        <th>Booking Time</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr data-th-each="booking:${bookings}">
+                        <td th:text="${booking.id}"/>
+                        <td th:text="${booking.getUser().username}"/>
+                        <td th:text="${booking.getUser().phoneNo}"/>
+                        <td th:text="${booking.getFutsal().futsalName}"/>
+                        <td th:text="${booking.fakeDate}"/>
+                        <td th:text="${booking.fakeTime}"/>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </div>
+</div>
+</body>
+
+<div th:replace="fragments/header :: footer"></div>
+
+</div>
+
+<div th:replace="fragments/header :: js"></div>
+
+
+</body>
+</html>

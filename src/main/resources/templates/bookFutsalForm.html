@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<div id="page-wrapper">
+    <div th:replace="fragments/header::header"></div>
+    <!-- Main -->
+    <div id="main" class="wrapper style1">
+        <div class="container">
+            <header class="major">
+                <h2>BOOK FORM</h2>
+                <p>Please enter the required field.</p>
+            </header>
+
+            <!-- Content -->
+            <section id="content" align="center">
+
+                <div align="center">
+                    <form method="post" th:action="@{/book/}+${booking.futsal.id}"
+                          th:object="${booking}">
+                        <div class="img-responsive">
+                            <img th:src="@{/images/futsal/}+${booking.futsal.id}+'.png'">
+                        </div>
+                        <div align="center" class="row uniform 50%">
+                            <div class="6u -3u">
+                                <input type="text" name="id" id="id" readonly=""
+                                       th:field="*{id}" placeholder="@{id}">
+                            </div>
+                        </div>
+                        <div class="row uniform 50%">
+                            <div class='6u -3u' id='datetimepicker1'>
+                                <input style="background: transparent" type="date" th:name="bookDate"
+                                       th:field="*{bookDate}" class="form-control"/>
+                                <input style="background: transparent" type="time" th:name="bookTime" th:field="*{bookTime}" class="form-control"/>
+
+                            </div>
+                        </div>
+
+                        <div class="row uniform 50%">
+                            <div class="12u">
+                                <ul class="actions">
+                                    <li><input type="submit" value="Register Now"
+                                               class="special"></li>
+                                    <li><input type="reset" value="Reset" class="special"></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <span 
+                                  th:if="${error}">Booking cannot de done.<br>Date must be today or in future.Time must be atleast 5 minutes after current time</span>
+                            <span
+                                  th:if="${existError}">Futsal is already booked.</span>
+                        </div>
+
+
+                    </form>
+                </div>
+
+
+            </section>
+
+        </div>
+    </div>
+
+    <div th:replace="fragments/header :: footer"></div>
+
+</div>
+
+
+<div th:replace="fragments/header :: js"></div>
+</body>
+</html>

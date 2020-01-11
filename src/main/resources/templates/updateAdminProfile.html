@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+	<div id="page-wrapper">
+		<div th:replace="fragments/header::header"></div>
+		<!-- Main -->
+		<div id="main" class="wrapper style1">
+			<div class="container">
+				<header class="major">
+					<h2> Your Profile </h2>
+					<p>Please update the required fields.</p>
+				</header>
+
+				<!-- Content -->
+				<section id="content" align="center">
+
+					<div align="center" th:object="${admin}">
+						<form method="post" th:action="@{/admin/update/}+${admin.id}"
+							>
+							<div align="center" class="row uniform 50%">
+								<div class="6u -3u">
+									<input type="text" name="fullname" id="name"
+										th:field="*{fullname}" placeholder="Full Name" required>
+								</div>
+							</div>
+
+							<div class="row uniform 50%">
+								<div class="6u -3u">
+									<input type="text" name="username" id="username"
+										th:field="*{username}" placeholder="Username" required>
+									<span
+										th:if="${error}">Username already exists.
+										Choose a different one.</span>
+								</div>
+							</div>
+
+							<div class="row uniform 50%">
+								<div class="6u -3u">
+									<input type="text" name="phoneNo" id="name"
+										th:field="*{phoneNo}" placeholder="Phone Number" required>
+								</div>
+							</div>
+
+							<div class="row uniform 50%">
+								<div class="6u -3u">
+									<input type="email" name="email" id="name" th:field="*{email}"
+										placeholder="Email" required>
+								</div>
+							</div>
+
+							<div class="row uniform 50%">
+								<div class="6u -3u">
+									<input type="password" name="password" id="name"
+										th:field="*{password}" placeholder="Password" required>
+								</div>
+							</div>
+							<div class="row uniform 50%">
+								<div class="12u">
+									<ul class="actions">
+										<li><input type="submit" value="Update"
+											class="special"></li>
+										<li><input type="reset" value="Reset" class="special"></li>
+									</ul>
+								</div>
+							</div>
+
+						</form>
+					</div>
+
+
+				</section>
+
+			</div>
+		</div>
+
+		<div th:replace="fragments/header :: footer"></div>
+
+	</div>
+
+	<div th:replace="fragments/header :: js"></div>
+</body>
+</html>

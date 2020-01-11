@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<div id="page-wrapper">
+    <div th:replace="fragments/header::header"></div>
+    <!-- Main -->
+    <div id="main" class="wrapper style1">
+        <div class="container">
+            <header class="major">
+                <h2>ADD FUTSAL</h2>
+                <p>Please enter the required field.</p>
+            </header>
+
+            <!-- Content -->
+            <section id="content" align="center">
+
+                <div align="center"th:object="${futsal}">
+                    <form enctype="multipart/form-data" method="post" th:action="@{/admin/futsal/manage/update/}+${futsal.id}"
+                          >
+                        <div align="center" class="row uniform 50%">
+                            <div class="6u -3u">
+                                <input type="text" name="futsalName" id="name"
+                                       th:field="*{futsalName}" placeholder="Futsal Name">
+                                <span style="color: red;"
+                                      th:if="${nameExist}">Futsal already exists.
+										Choose a different one.</span>
+                            </div>
+                        </div>
+
+                        <div class="row uniform 50%">
+                            <div class="6u -3u">
+                                <input type="text" name="address" id="username"
+                                       th:field="*{address}" placeholder="Address" required>
+
+                            </div>
+                        </div>
+
+                        <div class="row uniform 50%">
+                            <div class="6u -3u">
+                                <input type="text" name="phNo" id="name"
+                                       th:field="*{phNo}" placeholder="Phone Number" required>
+                            </div>
+                        </div>
+
+                        <div class="row uniform 50%">
+                            <div class="6u -3u">
+                                <select name="status" th:field="*{status}">
+                                    <option value="true">Available</option>
+                                    <option value="false">Unavailable</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="row uniform 50%">
+                            <div class="6u -3u">
+									<textarea name="description" id="description"
+                                              th:field="*{description}" placeholder="Description" required/>
+                            </div>
+                        </div>
+                        <div class="row uniform 50%">
+                            <div class="6u -3u">
+                                <input type="text" name="price" id="name"
+                                       th:field="*{price}" placeholder="Price" required>
+                            </div>
+                        </div>
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <input id="userImage" type="file" name="futsalImage"
+                                           th:field="*{futsalImage}" required="true"/>
+                                </div>
+                            </div>
+
+
+                        <div class="row uniform 50%">
+                            <div class="12u">
+                                <ul class="actions">
+                                    <li><input type="submit" value="Add Now"
+                                               class="special"></li>
+                                    <li><input type="reset" value="Reset" class="special"></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+
+            </section>
+
+        </div>
+    </div>
+
+    <div th:replace="fragments/header :: footer"></div>
+
+</div>
+
+<div th:replace="fragments/header :: js"></div>
+</body>
+</html>

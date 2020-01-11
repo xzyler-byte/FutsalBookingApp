@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head>
+<body class="landing">
+<div th:replace="fragments/header :: header">&nbsp;</div>
+</head>
+<body>
+<div id="main" class="wrapper style1">
+    <div class="container">
+        <header class="major">
+            <h2>Futsal List</h2>
+            <p>Below are the list of Futsals.</p>
+        </header>
+
+        <!-- Content -->
+        <section id="content">
+
+            <div class="table-wrapper">
+                <table border="1">
+                    <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Futsal Name</th>
+                        <th>Contact</th>
+                        <th>Address</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody data-th-each="futsal : ${futsals}">
+
+                    <tr>
+                        <td th:text="${futsal.id}"/>
+                        <td th:text="${futsal.futsalName}"/>
+                        <td th:text="${futsal.phNo}"/>
+                        <td th:text="${futsal.address}"/>
+                        <td th:text="${futsal.price}"/>
+                        <td th:text="${futsal.status}"/>
+                        <td>
+                            <a class="btn-default" th:href="@{/book/}+${futsal.id}" th:text="BOOK"/>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+        </section>
+
+    </div>
+</div>
+</body>
+
+<div th:replace="fragments/header :: footer"></div>
+
+</div>
+
+<div th:replace="fragments/header :: js"></div>
+
+
+</body>
+</html>

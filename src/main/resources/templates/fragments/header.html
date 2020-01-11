@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:fragment="header">
+    <title>Court Booking System</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" th:href="@{../../../../assets/css/main.css}"/>
+</head>
+<body class="landing">
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header" th:framgent="nav-bar">
+        <h1 id="logo">
+            <a th:href="@{/}">Futsal Booking System</a>
+        </h1>
+        <nav id="nav">
+            <ul>
+					<span style="color: red; float: left;"
+                          sec:authorize="!isAuthenticated()"><li><a
+                            th:href="@{/login}" class="button special">Sign In</a></li> </span>
+                <form th:action="@{/dologout}" method="post"
+                      sec:authorize="isAuthenticated()">
+                    <input class="button special" type="submit" value="Logout">
+                    </li>
+                </form>
+            </ul>
+        </nav>
+        <nav id="nav" sec:authorize="hasAuthority('USER')">
+            <ul>
+                <li>
+
+                    <a th:href="@{user/update}">EDIT PROFILE</a></li>
+
+                </li>
+                <li><a th:href="@{/book}">BOOK FUTSAL</a></li>
+                <li><a th:href="@{/book/list}">BOOKING LIST</a></li>
+                <li>
+                    <form th:action="@{/dologout}" method="post" sec:authorize="isAuthenticated()">
+                        <input class="button special" type="submit" value="Logout"></form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Footer -->
+    <footer id="footer" th:fragment="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon alt fa-twitter"><span
+                    class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon alt fa-facebook"><span
+                    class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon alt fa-linkedin"><span
+                    class="label">LinkedIn</span></a></li>
+            <li><a href="#" class="icon alt fa-instagram"><span
+                    class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon alt fa-github"><span
+                    class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon alt fa-envelope"><span
+                    class="label">Email</span></a></li>
+        </ul>
+    </footer>
+
+</div>
+
+<div th:fragment="js">
+    <script src="../../../..assets/js/jquery.min.js"></script>
+    <script src="../../../..assets/js/jquery.scrolly.min.js"></script>
+    <script src="../../../..assets/js/jquery.dropotron.min.js"></script>
+    <script src="../../../..assets/js/jquery.scrollex.min.js"></script>
+    <script src="../../../..assets/js/skel.min.js"></script>
+    <script src="../../../..assets/js/util.js"></script>
+    <!--[if lte IE 8]>
+    <script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+</div>
+</body>
+</html>

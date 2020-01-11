@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org">
+<head>
+<body class="landing">
+	<div th:replace="fragments/header :: header">&nbsp;</div>
+</head>
+<div id="page-wrapper">
+	<!-- Banner -->
+	<section id="banner">
+		<div class="content">
+			<header>
+				<h2>Futsal Booking System</h2>
+				<p>Welcome to Futsal Booking System. Now you can book futsals
+					within a click.</p>
+			</header>
+			<span class="image"><img th:src="@{images/futsal-logo1.png}"
+				alt="" /></span>
+		</div>
+		<a href="#one" class="goto-next scrolly">Next</a>
+	</section>
+
+	<!-- One -->
+	<section id="one" class="spotlight style1 bottom">
+		<!--<span class="image fit main"><img src="images/Futsal-Life-Cropped-Logo.jpg" alt="" /></span>-->
+		<div class="content">
+			<div class="container">
+				<div class="row">
+					<div class="4u 12u(medium)">
+						<header>
+							<h2>
+								<b>MORE ABOUT US</b>
+							</h2>
+							<p>Futsal Booking only serve booking services for Futsals</p>
+						</header>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div th:replace="fragments/header :: footer"></div>
+
+</div>
+
+<div th:replace="fragments/header :: js"></div>
+
+
+</body>
+</html>

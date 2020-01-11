@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{../assets/css/main.css}" href="assets/css/main.css" />
+</head>
+<body class="landing">
+<div><header id="header">
+    <h1 id="logo"><a th:href="@{/admin}">FUTSAL BOOKING SYSTEM</a></h1>
+    <nav id="nav">
+        <ul>
+            <li>
+                <a th:href="@{admin/update}">EDIT PROFILE</a>
+
+            </li>
+            <li><a th:href="@{/admin/futsal/manage/booking}">MANAGE BOOKING</a></li>
+            <li><a th:href="@{/admin/futsal/manage/}">MANAGE FUTSAL</a></li>
+            <li><a th:href="@{/admin/futsal/add}">ADD FUTSAL</a></li>
+            <li>
+                <form th:action="@{/dologout}" method="post" sec:authorize="isAuthenticated()">
+                    <input class="button special" type="submit" value="Logout"></li>
+        </ul>
+    </nav>
+</header></div>
+</head>
+<section id="banner">
+    <div class="content">
+        <header>
+            <h2>Futsal Booking System</h2>
+            <p>Welcome Admin.
+
+                Manage your bookings
+                within a click.</p>
+        </header>
+        <span class="image"><img th:src="@{images/futsal-logo1.png}"
+                                 alt="" /></span>
+    </div>
+</section>
+
+<div th:replace="fragments/header :: footer"></div>
+
+</div>
+
+<div th:replace="fragments/header :: js"></div>
+
+
+</body>
+</html>

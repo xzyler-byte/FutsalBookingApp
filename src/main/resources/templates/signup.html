@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+	<div id="page-wrapper">
+		<div th:replace="fragments/header::header"></div>
+		<!-- Main -->
+		<div id="main" class="wrapper style1">
+			<div class="container">
+				<header class="major">
+					<h2>REGISTER FORM</h2>
+					<p>Please enter the required field.</p>
+				</header>
+
+				<!-- Content -->
+				<section id="content" align="center">
+
+					<div align="center">
+						<form method="post" th:action="@{/user/add}"
+							th:object="${user}">
+							<div align="center" class="row uniform 50%">
+								<div class="6u -3u">
+									<input type="text" name="fullname" id="name"
+										th:field="*{fullname}" placeholder="Full Name" required>
+								</div>
+							</div>
+
+							<div class="row uniform 50%">
+								<div class="6u -3u">
+									<input type="text" name="username" id="username"
+										th:field="*{username}" placeholder="Username" required>
+									<span
+										th:if="${usernameExists}">Username already exists.
+										Choose a different one.</span>
+									<span
+										  th:if="${isNumber}">Username should not contain any numeric value.</span>
+								</div>
+							</div>
+
+							<div class="row uniform 50%">
+								<div class="6u -3u">
+									<input type="text" name="phoneNo" id="name"
+										th:field="*{phoneNo}" placeholder="Phone Number" required>
+								</div>
+							</div>
+
+							<div class="row uniform 50%">
+								<div class="6u -3u">
+									<input type="email" name="email" id="name" th:field="*{email}"
+										placeholder="Email" required>
+								</div>
+							</div>
+
+							<div class="row uniform 50%">
+								<div class="6u -3u">
+									<input type="password" name="password" id="name"
+										th:field="*{password}" placeholder="Password" required>
+								</div>
+							</div>
+							<div class="row uniform 50%">
+								<div class="6u -3u">
+									<select th:field="*{userRole}">
+										<option value="USER">User</option>
+										<option value="ADMIN">Admin</option>
+									</select>
+
+								</div>
+							</div>
+
+							<div class="row uniform 50%">
+								<div class="12u">
+									<ul class="actions">
+										<li><input type="submit" value="Register Now"
+											class="special"></li>
+										<li><input type="reset" value="Reset" class="special"></li>
+									</ul>
+								</div>
+							</div>
+
+						</form>
+					</div>
+
+
+				</section>
+
+			</div>
+		</div>
+
+		<div th:replace="fragments/header :: footer"></div>
+
+	</div>
+
+	<div th:replace="fragments/header :: js"></div>
+</body>
+</html>
