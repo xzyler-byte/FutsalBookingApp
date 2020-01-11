@@ -1,8 +1,5 @@
 package com.ncit.minor.futsalbookingapp.model;
 
-import javafx.util.converter.DateStringConverter;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -21,11 +18,7 @@ public class Booking {
     @DateTimeFormat(pattern = "HH:mm")
     private Date bookTime;
 
-    @Getter
-    @Setter
     private String fakeDate;
-    @Getter
-    @Setter
     private String fakeTime;
 
     @ManyToOne
@@ -78,4 +71,19 @@ public class Booking {
         this.futsal = futsal;
     }
 
+    public String getFakeDate() {
+        return this.fakeDate;
+    }
+
+    public String getFakeTime() {
+        return this.fakeTime;
+    }
+
+    public void setFakeDate(String fakeDate) {
+        this.fakeDate = fakeDate;
+    }
+
+    public void setFakeTime(String fakeTime) {
+        this.fakeTime = fakeTime;
+    }
 }
