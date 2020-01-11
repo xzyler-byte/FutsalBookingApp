@@ -27,7 +27,7 @@ public class HomeController {
 	public String index(Model model) {
         List<Booking>bookings= bookingService.findBookings();
         for (Booking b : bookings) {
-
+			if(!(b.getBookDate().equals(null)))
             if (b.getBookDate().getTime() + b.getBookTime().getTime() < currentDate.getTime()) {
                 bookingService.delete(b);
             }
