@@ -27,7 +27,7 @@
 
                         <div class="row uniform 50%">
                             <div class="6u -3u">
-                                <input type="text" name="address" id="username"
+                                <input type="text" name="address" id="address"
                                        th:field="*{address}" placeholder="Address" required>
                                 <span
                                       th:if="${nameExist}">Futsal already exists.
@@ -37,14 +37,14 @@
 
                         <div class="row uniform 50%">
                             <div class="6u -3u">
-                                <input type="text" name="phNo" id="name"
-                                       th:field="*{phNo}" placeholder="Phone Number" required>
+                                <input type="text" name="phNo" id="phNo"
+                                       th:field="*{phNo}" aria-placeholder="Phone Number" required>
                             </div>
                         </div>
 
                         <div class="row uniform 50%">
                             <div class="6u -3u">
-                                <select name="status" th:field="*{status}">
+                                <select class="dropdown" name="status" th:field="*{status}">
                                     <option value="true">Available</option>
                                     <option value="false">Unavailable</option>
                                 </select>
@@ -55,13 +55,13 @@
                         <div class="row uniform 50%">
                             <div class="6u -3u">
 									<textarea name="description" id="description"
-                                              th:field="*{description}" placeholder="Description" required/>
+                                              th:field="*{description}" placeholder="Description" />
                             </div>
                         </div>
                         <div class="row uniform 50%">
                             <div class="6u -3u">
-                                <input type="text" name="price" id="name"
-                                       th:field="*{price}" placeholder="Price" required>
+                                <input type="text" name="price" id="price"
+                                          th:field="*{price}" value="Price per hour"/>
                             </div>
                         </div>
                             <div class="form-group">
